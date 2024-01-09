@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = ({ setAuth }) => {
 	const [inputs, setInputs] = useState({
@@ -28,15 +29,18 @@ const Login = ({ setAuth }) => {
 				},
 				body: JSON.stringify(body),
 			});
-			// I added the if statement
-			if (response.ok) {
-				const parsedResponse = await response.json();
 
+			const parsedResponse = await response.json();
+
+			if (parsedResponse.token) {
 				localStorage.setItem('token', parsedResponse.token);
 
 				setAuth(true);
+
+				toast.success('Logged in successfully!');
 			} else {
-				console.log('You cannot do that');
+				setAuth(false);
+				toast.error(parsedResponse);
 			}
 		} catch (err) {
 			console.error(err.message);

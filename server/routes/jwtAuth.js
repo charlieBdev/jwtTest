@@ -20,7 +20,7 @@ router.post('/register', validInfo, async (req, res) => {
 		if (existingUser.rows.length !== 0) {
 			// 401 - unauthorised
 			// 403 - unauthenticated/forbidden
-			return res.status(401).send('User already exists');
+			return res.status(401).json('User already exists');
 		}
 
 		// res.json(existingUser.rows);
@@ -30,7 +30,6 @@ router.post('/register', validInfo, async (req, res) => {
 		const salt = await bcrypt.genSalt(saltRounds);
 
 		const bcryptPassword = await bcrypt.hash(password, salt);
-		// console.log(bcryptPassword);
 
 		// 4 - enter the user inside our db
 		const newUser = await pool.query(

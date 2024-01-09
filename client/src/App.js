@@ -11,10 +11,13 @@ import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Register from './components/Register';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// toast.configure();
+
 function App() {
-	/* eslint-disable no-unused-vars */
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	/* eslint-enable no-unused-vars */
+
 	const setAuth = (bool) => {
 		setIsAuthenticated(bool);
 	};
@@ -84,6 +87,7 @@ function App() {
 					</Routes>
 				</div>
 			</Router>
+			<ToastContainer />
 		</>
 	);
 }
