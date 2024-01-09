@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import {
 	BrowserRouter as Router,
@@ -18,6 +18,27 @@ function App() {
 	const setAuth = (bool) => {
 		setIsAuthenticated(bool);
 	};
+
+	const verify = async () => {
+		try {
+			const response = await fetch('http://localhost:5000/auth/verify', {
+				// no need for method - GET is default
+				headers: { token: localStorage.token },
+			});
+
+			const parsedResponse = await response.json();
+
+			parsedResponse === true
+				? setIsAuthenticated(true)
+				: setIsAuthenticated(false);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
+	useEffect(() => {
+		verify();
+	}, []);
 
 	return (
 		<>
