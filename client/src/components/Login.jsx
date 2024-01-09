@@ -63,7 +63,7 @@ const Login = ({ setAuth }) => {
 					value={password}
 					onChange={(e) => handleChange(e)}
 				/>
-				<button className='btn btn-success' type='submit'>
+				<button className='btn btn-success mb-3' type='submit'>
 					Submit
 				</button>
 			</form>

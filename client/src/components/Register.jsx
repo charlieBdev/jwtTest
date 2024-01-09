@@ -62,14 +62,14 @@ const Register = ({ setAuth }) => {
 					onChange={(e) => handleChange(e)}
 				/>
 				<input
-					className='form-control my3'
+					className='form-control my-3'
 					type='text'
 					name='name'
 					placeholder='name'
 					value={name}
 					onChange={(e) => handleChange(e)}
 				/>
-				<button className='btn btn-success' type='submit'>
+				<button className='btn btn-success mb-3' type='submit'>
 					Submit
 				</button>
 			</form>
