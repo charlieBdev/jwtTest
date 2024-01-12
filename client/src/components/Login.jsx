@@ -71,7 +71,12 @@ const Login = ({ setAuth }) => {
 					Submit
 				</button>
 			</form>
-			<Link to='/register'>Register</Link>
+			<Link to='/register' className='btn btn-primary'>
+				Register
+			</Link>
+			<Link to='/' className='btn btn-primary ml-3'>
+				Back
+			</Link>
 		</>
 	);
 };

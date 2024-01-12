@@ -7,13 +7,11 @@ import {
 	Navigate,
 } from 'react-router-dom';
 // components
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import Register from './components/Register';
+import Dashboard from './components/dashboard/Dashboard';
+import { Landing, Login, Register } from './components';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// toast.configure();
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,7 +23,6 @@ function App() {
 	const verify = async () => {
 		try {
 			const response = await fetch('http://localhost:5000/auth/verify', {
-				// no need for method - GET is default
 				headers: { token: localStorage.token },
 			});
 
@@ -48,6 +45,14 @@ function App() {
 			<Router>
 				<div className='container'>
 					<Routes>
+						<Route
+							exact
+							path='/'
+							// render={(props) => <Login {...props} />}
+							element={
+								!isAuthenticated ? <Landing /> : <Navigate to='/dashboard' />
+							}
+						/>
 						<Route
 							exact
 							path='/login'

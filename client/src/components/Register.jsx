@@ -81,7 +81,12 @@ const Register = ({ setAuth }) => {
 					Submit
 				</button>
 			</form>
-			<Link to='/login'>Login</Link>
+			<Link to='/login' className='btn btn-primary'>
+				Login
+			</Link>
+			<Link to='/' className='btn btn-primary ml-3'>
+				Back
+			</Link>
 		</>
 	);
 };
