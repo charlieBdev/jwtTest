@@ -1,10 +1,11 @@
-const Pool = require('pg').Pool;
-
+const { Pool } = require('pg');
 const ENV = process.env.NODE_ENV || 'development';
 
-const pathToCorrectEnvFile = `${__dirname}/../.env.${ENV}`;
+require('dotenv').config({
+	path: `${__dirname}/.env.${ENV}`,
+});
 
-console.log('Loading environment variables from:', pathToCorrectEnvFile);
+console.log(ENV);
 
 if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
 	throw new Error('PGDATABASE or DATABASE_URL not set');
@@ -17,6 +18,6 @@ if (ENV === 'production') {
 	config.max = 2;
 }
 
-const pool = new Pool(config);
+const db = new Pool(config);
 
-module.exports = pool;
+module.exports = db;
