@@ -22,9 +22,13 @@ function App() {
 
 	const verify = async () => {
 		try {
-			const response = await fetch('http://localhost:5000/auth/verify', {
-				headers: { token: localStorage.token },
-			});
+			// const response = await fetch('http://localhost:5000/auth/verify', {
+			const response = await fetch(
+				'https://pern-todo-auth.onrender.com/auth/verify',
+				{
+					headers: { token: localStorage.token },
+				}
+			);
 
 			const parsedResponse = await response.json();
 

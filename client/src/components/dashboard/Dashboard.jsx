@@ -10,8 +10,8 @@ const Dashboard = ({ setAuth }) => {
 	const getProfile = async () => {
 		try {
 			const response = await fetch(
-				'http://localhost:5000/dashboard/',
-				// 'https://perntodo-k667.onrender.com/dashboard/',
+				// 'http://localhost:5000/dashboard/',
+				'https://pern-todo-auth.onrender.com/dashboard/',
 				{
 					headers: { token: localStorage.token },
 				}

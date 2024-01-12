@@ -21,9 +21,8 @@ const InputTodo = ({ setTodosChange }) => {
 			const body = { description };
 
 			const response = await fetch(
-				'http://localhost:5000/dashboard/todos',
-				// const response = await fetch(
-				// 	'https://perntodo-k667.onrender.com/dashboard/todos',
+				// 'http://localhost:5000/dashboard/todos',
+				'https://pern-todo-auth.onrender.com/dashboard/todos',
 				{
 					method: 'POST',
 					headers: myHeaders,

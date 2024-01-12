@@ -17,8 +17,8 @@ const TodoCard = ({ todo, setTodosChange }) => {
 
 		try {
 			const response = await fetch(
-				`http://localhost:5000/dashboard/todos/${id}`,
-				// `https://perntodo-k667.onrender.com/dashboard/todos/${id}`,
+				// `http://localhost:5000/dashboard/todos/${id}`,
+				`https://pern-todo-auth.onrender.com/dashboard/todos/${id}`,
 				{
 					method: 'DELETE',
 					headers: { token: localStorage.token },

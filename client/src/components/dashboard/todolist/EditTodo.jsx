@@ -20,8 +20,8 @@ const EditTodo = ({ todo, setTodosChange }) => {
 
 				const body = { description };
 				const response = await fetch(
-					`http://localhost:5000/dashboard/todos/${id}`,
-					// `https://perntodo-k667.onrender.com/dashboard/todos/${todo.todo_id}`,
+					// `http://localhost:5000/dashboard/todos/${id}`,
+					`https://pern-todo-auth.onrender.com/dashboard/todos/${id}`,
 					{
 						method: 'PUT',
 						headers: myHeaders,
